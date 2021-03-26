@@ -22,3 +22,16 @@
 
 - In the current format there is only one requirement tested. This is open to improvement. For example we can also try to test the datetime fileds before parsing to make sure they are type of a datetime object. <br>
   `python -m unittest tests.test_pipeline`
+
+# How to check the records is Postgres
+
+- Connect to psql docker.
+  `docker exec -it {container_id}` bash 
+- Connect to psql
+  `psql -U postgres`
+- Use the retriever database
+  `\c retriever;`  
+- To check records do;
+  `select * from retriever_table;`
+- To check record types and confirm the data being stored as json;
+  `select pg_typeof("obj") from retriever_table;`
